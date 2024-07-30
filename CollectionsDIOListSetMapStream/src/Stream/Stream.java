@@ -24,6 +24,27 @@ public class Stream {
 //	                .collect(Collectors.toSet())
 //	                .forEach(System.out::println);
 		
+		 List<Integer> numerosAleatorios =
+	                Arrays.asList(1, 0, 4, 1, 2, 3, 9, 9, 6, 5);
+
+		//trás o numero max
+		 Optional<Integer> maxNumber = numerosAleatorios.stream()
+            					.max(Integer::compareTo);
+
+		//transformar um integer em string
+		 Optional<String> maxNumberAsString = numerosAleatorios.stream()
+            						.max(Integer::compareTo)
+           		 				.map(Object::toString); // Transformar o número máximo em uma string
+       		
+     		   maxNumberAsString.ifPresent(maxStr -> System.out.println("Número máximo como string: " + maxStr));
+
+		//pega a media dos valores
+		 OptionalDouble average = numerosAleatorios.stream()
+          				  .mapToInt(Integer::intValue)
+           				  .average();
+
+		
+		
 //	        Set<String> numerosAleatorios5Primeiros = numerosAleatorios.stream()
 //	                .limit(5)
 //	                .collect(Collectors.toSet());
